@@ -3,8 +3,8 @@
 const patternArray = [];
 
 // Changes the letter in the box //
+let playLetter = "X";
 function makePlay(x) {
-   let playLetter = "X";
    if (document.getElementById(x).innerText !== "") {
       alert("Please Choose A Different Square");
    } else {
