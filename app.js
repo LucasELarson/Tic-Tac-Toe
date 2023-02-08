@@ -18,6 +18,8 @@ function makePlay(x) {
 
 function updateArray() {
    // checks to see if a square contains an X or an O //
+   const playerX = document.getElementById("xname").value;
+   const playerO = document.getElementById("oname").value;
    const patternArray = [];
    for (let i = 0; i <= 8; i++) {
       const squareVar = "square" + (i + 1);
@@ -36,15 +38,17 @@ function updateArray() {
       const winOne = ["X", "X", "X"];
       const winTwo = ["O", "O", "O"];
 
+      console.log(playerO);
+      console.log(playerX);
       // checks to see if X or O has a winning pattern, if board is full with no winner its a tie //
       if (pattOne.toString() === winOne.toString() || pattTwo.toString() === winOne.toString() || pattThree.toString() === winOne.toString() || pattFour.toString() === winOne.toString() || pattFive.toString() === winOne.toString() || pattSix.toString() === winOne.toString() || pattSeven.toString() === winOne.toString() || pattEight.toString() === winOne.toString()) {
-         alert("X Wins!");
+         document.getElementById("notification").innerText = `${playerX.toUpperCase()} WINS!`;
          break;
       } else if (pattOne.toString() === winTwo.toString() || pattTwo.toString() === winTwo.toString() || pattThree.toString() === winTwo.toString() || pattFour.toString() === winTwo.toString() || pattFive.toString() === winTwo.toString() || pattSix.toString() === winTwo.toString() || pattSeven.toString() === winTwo.toString() || pattEight.toString() === winTwo.toString()) {
-         alert("O Wins!");
+         document.getElementById("notification").innerText = `${playerO.toUpperCase()} WINS!`;
          break;
       } else if (patternArray.length === 9 && patternArray.includes("") === false) {
-         alert("TIE");
+         document.getElementById("notification").innerText = `TIE`;
          break;
       }
    }
