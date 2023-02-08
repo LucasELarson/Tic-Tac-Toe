@@ -38,18 +38,37 @@ function updateArray() {
       const winOne = ["X", "X", "X"];
       const winTwo = ["O", "O", "O"];
 
-      console.log(playerO);
-      console.log(playerX);
       // checks to see if X or O has a winning pattern, if board is full with no winner its a tie //
       if (pattOne.toString() === winOne.toString() || pattTwo.toString() === winOne.toString() || pattThree.toString() === winOne.toString() || pattFour.toString() === winOne.toString() || pattFive.toString() === winOne.toString() || pattSix.toString() === winOne.toString() || pattSeven.toString() === winOne.toString() || pattEight.toString() === winOne.toString()) {
-         document.getElementById("notification").innerText = `${playerX.toUpperCase()} WINS!`;
+         endGame(`${playerX} WINS!`);
          break;
       } else if (pattOne.toString() === winTwo.toString() || pattTwo.toString() === winTwo.toString() || pattThree.toString() === winTwo.toString() || pattFour.toString() === winTwo.toString() || pattFive.toString() === winTwo.toString() || pattSix.toString() === winTwo.toString() || pattSeven.toString() === winTwo.toString() || pattEight.toString() === winTwo.toString()) {
          document.getElementById("notification").innerText = `${playerO.toUpperCase()} WINS!`;
+         endGame(`${playerO} WINS!`);
          break;
       } else if (patternArray.length === 9 && patternArray.includes("") === false) {
-         document.getElementById("notification").innerText = `TIE`;
+         endGame(`${playerX} and ${playerO} TIE!`);
          break;
       }
    }
+}
+
+// Allows Player to refresh or reset //
+function save() {
+   if (confirm("Play Again?") === true) {
+      for (let i = 0; i <= 8; i++) {
+         const squareVar = "square" + (i + 1);
+         document.getElementById(squareVar).innerHTML = "";
+      }
+      document.getElementById("notification").innerText = "X GOES FIRST";
+   } else {
+      window.close();
+   }
+}
+
+function endGame(w) {
+   document.getElementById("notification").innerText = `${w.toUpperCase()}`;
+   setTimeout(() => {
+      save();
+   }, 500);
 }
