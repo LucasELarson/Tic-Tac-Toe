@@ -36,21 +36,15 @@ body {
    justify-content: center;
    align-items: center;
    overflow: hidden;
-   font-size: 5vw;
+   font-size: 6vw;
    border-radius: 15px;
+   font-family: Varela;
 }
 
 @font-face {
    font-family: Varela;
    src: url(./fonts/VarelaRound-Regular.ttf);
 }
-
-h1{
-   font-family: Varela;
-}
-
-
-
 
 #sqaure1{
    grid-area: square1;
