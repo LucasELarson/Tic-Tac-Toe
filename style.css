@@ -27,6 +27,11 @@ body {
    "square7 square8 square9";
 }
 
+.header{
+   font-family: Varela;
+   font-size: 5vw;
+}
+
 .square {
    background-color: aqua;
    border-style: solid;
